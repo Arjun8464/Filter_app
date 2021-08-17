@@ -1,4 +1,7 @@
+noseX= 0;
+noseY= 0;
 function preload(){
+    clown_nose=loadImage('https://i.postimg.cc/d0QMLj8v/580b57fbd9996e24bc43bed5.png')
 }
 
 function setup(){
@@ -15,7 +18,11 @@ function setup(){
 }
 
 function draw(){
-    image(video, 0, 0, 300, 300)
+    image(video, 0, 0, 300, 300);
+/*fill(255,0,0);
+stroke(0,0,255);
+circle(noseX,noseY,25)*/
+image(clown_nose, noseX-10, noseY-10, 30, 30)
 }
 
 function take_snapshot(){
@@ -33,5 +40,7 @@ if(results.length > 0){
     console.log("nosey"+results[0].pose.nose.y);
     console.log("leftwristx"+results[0].pose.leftWrist.x);
     console.log("leftwristy"+results[0].pose.leftWrist.y);
+    noseX= results[0].pose.nose.x;
+    noseY= results[0].pose.nose.y;
 }
 }
